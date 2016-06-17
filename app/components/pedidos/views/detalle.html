@@ -1,0 +1,39 @@
+<div class="col s12 m12">
+    <table class="bordered highlight responsive-table">
+        <thead>
+            <tr>
+                <th data-field="org">C&oacute;digo</th>
+                <th data-field="nroDocumento">Producto</th>
+                <th data-field="documentoTransaccion">Cantidad</th>
+                <th data-field="fechaPedido">% Descuento</th>
+                <th data-field="importeTotal">Precio Unitario</th>
+                <th data-field="moneda">Subtotal</th>
+                <th data-field="moneda">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in PG.pedido.lines">
+                <td>{{p.codigo}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.cantidad}}</td>
+                <td>{{p.descuento}}</td>
+                <td>{{p.precioUnitario}}</td>
+                <td>{{p.subtotal}}</td>
+                <td style="width: 100px;"><a class="btn-floating" ng-click="PG.editItemFromOrder(p, $event)"><i class="material-icons">mode_edit</i></a> <a class="btn-floating" ng-click="PG.confirmRemoveItem(p.codigo, $event)"><i class="material-icons">delete</i></a></td>
+            </tr> 
+        </tbody>
+    </table>
+
+</div>
+
+
+<div id="modalConfirmDeleteItem" class="modal">
+    <div class="modal-content">
+        <h4>Eliminar l&iacute;nea de pedido</h4>
+        <p>¿Est&aacute; seguro que desea <b>eliminar</b> esta l&iacute;nea del pedido?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="javascript:void(0);" id="cancelDeleteItem" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</a>
+        <a href="javascript:void(0);" id="confirmDeleteItem" ng-click="PG.removeLine(PG.lineToRemove)" class="modal-action modal-close waves-effect waves-green btn-flat ">Confirmar</a>
+    </div>
+</div>

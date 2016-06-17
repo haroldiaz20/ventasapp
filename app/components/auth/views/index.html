@@ -1,0 +1,54 @@
+<div class="container">
+    <!-- Page Content goes here -->
+    <div class="row">
+        <div class="col s12 m4 offset-m4">
+            <div class="card z-depth-6">
+                <div class="card-image blue darken-4">
+                    <img src="http://www.sekurperu.com.pe/img/prestashop-demo-logo-1432157571.jpg" class="" alt="Sekur Peru Logo">                   
+                </div>
+                <div class="card-content">
+                    <h5>Bienvenido, ingrese sus datos</h5>
+                    <div class="divider"></div>
+                    <form class="" style="margin-top: 10px;" ng-submit="AU.loguear($event)">
+                        <div class="row">
+                            <div class="input-field col s12 m12">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="usuario" type="text" class="" ng-model="AU.usuario.username">
+                                <label for="usuario">Usuario</label>
+                            </div>
+                            <div class="input-field col s12 m12">
+                                <i class="material-icons prefix">lock</i>
+                                <input id="password" type="password" class="" ng-model="AU.usuario.password">
+                                <label for="password">Contrase&ntilde;a</label>
+                            </div>
+                            <div class="input-field col s12 m12">
+                                <i class="material-icons prefix">person_pin_circle</i>
+                                <select material-select watch name="organizacion" id="organizacion"
+                                        ng-options="org as org.nombre for org in AU.orgs track by org.id"
+                                        ng-model="AU.usuario.org">
+                                    <option value="">-- Seleccione su Organizaci&oacute;n --</option>
+                                </select>    
+                                <label for="organizacion">Organizaci&oacute;n</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s12 m12">
+                                <button class='btn blue accent-4' ng-click="AU.loguear($event)"><i class="material-icons left">lock_open</i>Ingresar</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>

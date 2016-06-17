@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="SekurVentasApp">
+    <head>
+        <title>Sekur Ventas S.A.</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="initial-scale=1" />
+        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />   
+        <base href="/xxx/">
+
+        <!-- Compiled and minified CSS Materialize -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Datatables Material -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.datatables.net/1.10.11/css/dataTables.material.min.css" rel="stylesheet" type="text/css">
+        <!-- Styles -->
+        <link href="assets/css/styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <div ui-view></div>
+
+
+        <!-- Problema lean Modaal, por lo que JQuery necesita ser cargado antes que angularjs    -->
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+        <!-- Angular Dependencies -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-messages.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+        <script src="assets/js/angular-cookies.min.js" type="text/javascript"></script>
+
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+        <!-- Angular materialize -->  
+        <script src="assets/js/angular-materialize.js" type="text/javascript"></script>
+        <script src="assets/js/materialize.clockpicker.js" type="text/javascript"></script>
+
+        <!-- Others -->
+        <script src="assets/js/underscore-min.js" type="text/javascript"></script>
+        <script src="assets/js/moment.min.js" type="text/javascript"></script>
+        <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="https://cdn.datatables.net/1.10.11/js/dataTables.material.min.js" type="text/javascript"></script>
+        <!--        <script src="https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json" type="text/javascript"></script>-->
+        <script src="assets/js/typeahead.bundle.js" type="text/javascript"></script>
+
+        <!-- App Main scripts -->
+        <script src="app/app.modules.js" type="text/javascript"></script>
+        <script src="app/app.routes.js" type="text/javascript"></script>
+        <script src="app/components/pedidos/pedidos.routes.js" type="text/javascript"></script>
+        <script src="app/components/auth/auth.routes.js" type="text/javascript"></script>
+        <!-- Services Scripts -->
+
+        <script src="app/components/pedidos/services/pedidoService.js" type="text/javascript"></script>
+        <script src="app/components/auth/services/authService.js" type="text/javascript"></script>
+        <!-- Controllers Scripts -->
+
+        <script src="app/components/pedidos/controllers/pedidoController.js" type="text/javascript"></script>
+        <script src="app/components/auth/controllers/authController.js" type="text/javascript"></script>
+    </body>
+
+
+</html>

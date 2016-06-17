@@ -1,0 +1,145 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06-ago-2015, 10:38:38
+    Author     : Stefanie
+*/
+.wizard > .steps {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.clearfix {
+}
+.clearfix {
+}
+
+.wizard > .steps > ul > li, .wizard > .actions > ul > li {
+    float: left;
+}
+.wizard > .steps > ul > li {
+    width: 25%;
+}
+.wizard ul > li, .tabcontrol ul > li {
+    display: block;
+    padding: 0px;
+}
+
+.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+    background: #2184BE none repeat scroll 0% 0%;
+    color: #FFF;
+    cursor: default;
+}
+
+.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+    background: #EEE none repeat scroll 0% 0%;
+    color: #AAA;
+    cursor: default;
+}
+.wizard > .steps a, .wizard > .steps a:hover, .wizard > .steps a:active {
+    display: block;
+    width: auto;
+    margin: 0px 0.5em 0.5em;
+    padding: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.wizard a, .tabcontrol a {
+    outline: 0px none;
+}
+
+.wizard > .actions {
+    position: relative;
+    display: block;
+    text-align: right;
+    width: 100%;
+}
+
+.wizard > .actions > ul {
+    display: inline-block;
+    text-align: right;
+}
+.wizard ul, .tabcontrol ul {
+    list-style: outside none none !important;
+    padding: 0px;
+    margin: 0px;
+}
+
+.wizard > .actions > ul > li {
+    margin: 0px 0.5em;
+}
+.wizard > .steps > ul > li, .wizard > .actions > ul > li {
+    float: left;
+}
+.wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active {
+    background: #2184BE none repeat scroll 0% 0%;
+    color: #FFF;
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.wizard > .actions > ul > li {
+    margin: 0px 0.5em;
+}
+.wizard > .steps > ul > li, .wizard > .actions > ul > li {
+    float: left;
+}
+.wizard ul > li, .tabcontrol ul > li {
+    display: block;
+    padding: 0px;
+}
+.wizard > .actions > ul > li {
+    margin: 0px 0.5em;
+}
+.wizard > .steps > ul > li, .wizard > .actions > ul > li {
+    float: left;
+}
+.wizard ul > li, .tabcontrol ul > li {
+    display: block;
+    padding: 0px;
+}
+.wizard > .content > .body label.error
+{
+    color: #8a1f11;
+    display: inline-block;
+    margin-left: 1.5em;
+}
+
+.wizard > .steps .current-info, .tabcontrol > .steps .current-info {
+    position: absolute;
+    left: -999em;
+}
+.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+    background: #2184be;
+    color: #fff;
+    cursor: default;
+}
+
+.wizard > .steps a, .wizard > .steps a:hover, .wizard > .steps a:active {
+    display: block;
+    width: auto;
+    margin: 0 0.5em 0.5em;
+    padding: 1em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.wizard > .content > .title, .tabcontrol > .content > .title {
+    position: absolute;
+    left: -999em;
+}
+
+.wizard > .steps .error a,
+.wizard > .steps .error a:hover,
+.wizard > .steps .error a:active
+{
+    background: #ff3111;
+    color: #fff;
+}

@@ -1,0 +1,115 @@
+<md-dialog flex="50" flex-xs="90" aria-label="Registrar nuevo cliente" style="min-height: 550px;" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Registrar nuevo cliente</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons">clear</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:800px;max-height:600px; ">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="general">
+                    <md-content class="md-padding">
+                        <div layout-gt-xs="row">
+                            <md-input-container layout-sm="column" class="md-block" flex-gt-sm>
+                                <input id="cliente_reg_org" type="text" class="" aria-label="organización asociada al cliente" ng-model="NC.pedido.org.name" disabled="disabled">
+                                <label class="active" for="cliente_reg_org">Organizaci&oacute;n</label>
+                            </md-input-container>
+                            <md-input-container layout-sm="column" class="md-block" flex-gt-sm>
+                                <input id="cliente_reg_agente" type="text" class="" aria-label="agente comercial asociado al cliente" ng-model="NC.pedido.agenteComercial.name" disabled="disabled">
+                                <label class="active" for="cliente_reg_agente">Agente Comercial</label>
+                            </md-input-container>
+                        </div>
+                        <div layout-gt-xs="row">
+                            <md-input-container layout-sm="column" class="md-block" flex-gt-sm>
+                                <input id="cliente_reg_identificador" type="text" class="" aria-label="identificador único del cliente" ng-model="NC.clienteNuevo.identificador">
+                                <label class="active" for="cliente_reg_identificador">Identificador</label>
+                            </md-input-container>
+                        </div>
+                        <div layout-gt-xs="row">
+                            <md-input-container layout-sm="column" class="md-block" flex-gt-sm>
+                                <input id="cliente_reg_nombre" type="text" class="" aria-label="nombre comercial del cliente" ng-model="NC.clienteNuevo.nombreComercial">
+                                <label class="active" for="cliente_reg_nombre">Nombre Comercial</label>
+                            </md-input-container>
+                        </div>
+
+                        <div layout-gt-xs="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Documento</label>
+                                <md-select ng-model="NC.clienteNuevo.tipoDocumento">
+                                    <md-option ng-repeat="tipoDocumento in NC.tiposDocumento" ng-value="tipoDocumento">
+                                        {{tipoDocumento.name}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container layout-sm="column" class="md-block" flex-gt-sm>
+                                <input id="cliente_reg_ruc" type="text" class="" aria-label="número de documento del cliente" ng-model="NC.clienteNuevo.taxid">
+                                <label class="active" for="cliente_reg_ruc">R.U.C.</label>
+                            </md-input-container>   
+                        </div>
+
+
+                    </md-content>
+                </md-tab>
+                <md-tab label="dirección">
+                    <md-content class="md-padding">
+                        <!--                        <h3 class="md-display-2">Direcci&oacute;n del cliente</h3>-->
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input id="direccion_linea1" type="text" class="" aria-label="dirección línea 1 del cliente" ng-model="NC.direccion.linea1">
+                            <label class="active" for="direccion_linea1">L&iacute;nea 1</label>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input id="direccion_linea2" type="text" class="" aria-label="dirección línea 2 del cliente" ng-model="NC.direccion.linea2">
+                            <label class="active" for="direccion_linea2">L&iacute;nea 2</label>
+                        </md-input-container>
+                        <div layout-gt-xs="row">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Pa&iacute;s</label>
+                                <md-select ng-model="NC.direccion.pais" ng-change="NC.cambioPais($event)">
+                                    <md-option ng-repeat="pais in NC.paises" ng-value="pais">
+                                        {{pais.name}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Regi&oacute;n</label>
+                                <md-select ng-model="NC.direccion.region">
+                                    <md-option ng-repeat="region in NC.regiones" ng-value="region">
+                                        {{region.name}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>  
+                        </div>
+
+                        <div layout-gt-xs="row">
+                            <md-input-container layout="row" layout-sm="column" class="md-block" flex-gt-sm="60">
+                                <input id="direccion_distrito" type="text" class="" aria-label="distrito donde vive el cliente" ng-model="NC.direccion.distrito">
+                                <label class="active" for="direccion_distrito">Distrito</label>
+                            </md-input-container>
+                            <md-input-container layout="row" layout-sm="column" class="md-block" flex-gt-sm="40">
+                                <input id="direccion_codigo_postal" type="text" class="" aria-label="código postal de la dirección del cliente" ng-model="NC.direccion.codigoPostal">
+                                <label class="active" for="direccion_codigo_postal">C&oacute;digo postal</label>
+                            </md-input-container>
+                        </div>
+
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+
+
+        </md-dialog-content>
+        <md-dialog-actions layout="row">            
+            <span flex></span>
+            <md-button ng-click="NC.answer('not useful')">
+                Cancelar
+            </md-button>
+            <md-button ng-click="NC.guardarCliente($event)" style="margin-right:20px;">
+                Guardar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

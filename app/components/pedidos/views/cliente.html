@@ -1,0 +1,221 @@
+<form class="col s12 m12">
+    <div class="row">
+        <div class="input-field col s4 m4">
+            <input id="nroPedidoCl" type="text" class="" disabled ng-model="PG.pedido.documento.documentNo">
+            <label for="nroPedidoCl">Nro. Pedido</label>
+        </div>
+        <div class="input-field col s4 m4">
+            <input id="monedaCl" type="text" class=""  ng-model="NP.pedido.moneda.name">
+            <label for="monedaCl">Moneda</label>
+        </div>
+        <div class="input-field col s4 m4">                            
+            <input id="tipoCambioCl" type="text" class="" disabled>
+            <label for="tipoCambioCl">Tipo de cambio</label>
+        </div>
+        <div class="input-field col s4 m4">                            
+            <select material-select watch name="formaPagoCl" id="formaPagoCl"
+                    ng-options="formaPago as formaPago.name for formaPago in PG.invoice.formasPago track by formaPago.name"
+                    ng-model="PG.formaPago" ng-change="PG.cambioFormaPago($event)">
+            </select>  
+            <label for="formaPagoCl">Forma de pago</label>
+        </div>
+        <div class="input-field col s4 m4">                            
+            <select material-select watch name="formaPagoCl" id="formaPagoCl"
+                    ng-options="nroDias as nroDias.name for nroDias in PG.invoice.nroDias track by nroDias.name"
+                    ng-model="PG.nroDias">
+            </select> 
+            <label for="nroDiasCl">Nro. d&iacute;as</label>
+        </div>
+        <div class="input-field col s4 m4">
+            <input id="ordenCompraCl" type="text" class="">
+            <label for="ordenCompraCl">Orden de compra</label>
+        </div>
+        <div class="input-field col s4 m4">
+            <select material-select watch name="tipoPedidoCl" id="tipoPedidoCl"
+                    ng-options="tipoPedido as tipoPedido.name for tipoPedido in PG.invoice.tiposPedido track by tipoPedido.name"
+                    ng-model="PG.tipoPedido">
+            </select> 
+            <label for="tipoPedidoCl">Tipo de pedido</label>
+        </div>
+        <div class="input-field col s4 m4">
+            <select material-select watch name="tipoEntregaCl" id="tipoEntregaCl"
+                    ng-options="tipoEntrega as tipoEntrega.name for tipoEntrega in PG.invoice.tiposEntrega track by tipoEntrega.name"
+                    ng-model="PG.tipoEntrega">
+            </select> 
+            <label for="tipoEntregaCl">Tipo de entrega</label>
+        </div>
+        <div class="input-field col s4 m4">
+            <label for="fechaEntregaCl">Fecha de entrega</label>
+            <input id="fechaEntregaCl" input-date
+                   type="text"
+                   name="created"
+                   ng-model="PG.pedido.fechaEnvio"
+                   container="body"
+                   format="dd/mm/yyyy"
+                   months-full="{{ PG.month}}"
+                   months-short="{{ PG.monthShort}}"
+                   weekdays-full="{{ PG.weekdaysFull}}"
+                   weekdays-short="{{ PG.weekdaysShort}}"
+                   weekdays-letter="{{ PG.weekdaysLetter}}"
+                   min="{{ PG.minDate}}"
+                   today="PG.today"
+                   clear="PG.clear"
+                   close="PG.close"
+                   /> 
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row section">
+        <div class="input-field col s6 m4">
+            <input id="taxidCl" type="text" class="" ng-model="PG.cliente.taxid">
+            <label for="taxidCl">R.U.C.</label>
+        </div>
+        <div class="input-field col s3 m4">
+            <a class="btn blue waves-effect waves-light accent-4" ng-click="PG.buscarCliente($event);"><i class="material-icons left">search</i>Buscar</a>
+        </div>
+        <div class="input-field col s3 m4">
+            <a class="btn blue waves-effect waves-light accent-4" href='#clienteModal' modal  enable-tabs="true"><i class="material-icons left">person_add</i>Agregar</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 m6">
+            <input id="nombreCl" type="text" class="" ng-model="PG.cliente.name">
+            <label for="nombreCl">Nombre Completo o Raz&oacute;n Social</label>
+        </div>
+        <div class="input-field col s12 m6">
+            <input id="direccionCl" type="text" class="" ng-model="PG.cliente.address.address1">
+            <label for="direccionCl">Direcci&oacute;n</label>
+        </div>
+        <div class="input-field col s12 m4">
+            <input id="ciudadCl" name="ciudadCl" type="text" class="" ng-model="PG.cliente.address.city">
+            <label for="ciudadCl">Ciudad</label>
+        </div>
+        <div class="input-field col s12 m4">
+            <input id="regionCl" name="regionCl" type="text" class="" ng-model="PG.cliente.address.region.name">
+            <label for="regionCl">Regi&oacute;n</label>
+        </div>
+<!--        <div class="input-field col s12 m4">
+            <input id="telefonoCl" type="text" class="" ng-model="PG.cliente.phone">
+            <label for="telefonoCl">Tel&eacute;fono(s)</label>
+        </div>-->
+    </div>
+
+</form>
+<!-- Modal Structure -->
+<div id="clienteModal" class="modal ">
+    <div class="modal-content">
+        <h4>Registrar nuevo cliente</h4>
+        <div class="col s12 m12">
+            <ul class="tabs">
+                <li class="tab col s4"><a class="active blue-text text-accent-4" href="#infoCliente" >Info</a></li>
+                <li class="tab col s4"><a class="blue-text text-accent-4" href="#direccionCliente">Direcci&oacute;n</a></li>      
+            </ul>
+        </div>
+        <form class="col s12 m12" name="clientForm">           
+            <div class="row section">
+                <div id="infoCliente" class="col s12">                    
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="orgClientModal" type="text" class="" disabled="" ng-model="PG.invoice.org.name" required>
+                            <label for="orgClientModal">Organizaci&oacute;n</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="agenteComercialModal" type="text" class="" disabled="" ng-model="PG.invoice.vendor.fullName" required>
+                            <label for="agenteComercialModal">Agente Comercial</label>
+                        </div>
+                        <div class="input-field col s12 m4">
+                            <input id="identificadorModal" type="text" name="identificadorModal" ng-model="PG.cliente.identificador" required>
+                            <label for="identificadorModal">Identificador</label>
+                            <div ng-messages="clientForm.identificadorModal.$error" ng-if='clientForm.identificadorModal.$touched && clientForm.identificadorModal.$dirty' class="errorMessageContainer">
+                                <div class="errorMessageDiv" ng-message="required">Debe ingresar una identificador único</div>
+                            </div>
+                        </div>
+
+                        <div class="input-field col s12 m8">
+                            <input id="nombreComerciaModal" type="text" name="nombreComerciaModal" ng-model="PG.cliente.name" required>
+                            <label for="nombreComerciaModal">Nombre Comercial</label>
+                            <div ng-messages="clientForm.nombreComerciaModal.$error" ng-if='clientForm.nombreComerciaModal.$touched && clientForm.nombreComerciaModal.$dirty' class="errorMessageContainer">
+                                <div class="errorMessageDiv" ng-message="required">Debe ingresar una razón social válida</div>
+                            </div>
+                        </div>
+
+                        <div class="input-field col s6 m6">                            
+                            <select material-select watch name="tipoDocumentoModal" id="tipoDocumentoModal"
+                                    ng-options="tipoDocumento as tipoDocumento.name for tipoDocumento in PG.invoice.tiposDocumento track by tipoDocumento.value"
+                                    ng-model="PG.tipoDocumento"
+                                    ng-change="PG.cambiarDocumentoIdentidad($event)">
+                            </select> 
+                            <label for="tipoDocumentoModal">Tipo de Documento</label>
+                        </div>
+
+                        <div class="input-field col s6 m6">
+                            <input id="nroDocumentoModal" type="text" name="nroDocumentoModal" ng-model="PG.cliente.taxid" ng-minlength="{{minCarac}}" ng-maxlength="{{maxCarac}}" required>
+                            <label for="nroDocumentoModal">Nro. de Documento</label>
+                            <div ng-messages="clientForm.nroDocumentoModal.$error" ng-if='clientForm.nroDocumentoModal.$touched && clientForm.nroDocumentoModal.$dirty' class="errorMessageContainer">
+                                <div class="errorMessageDiv" ng-message="required">Debe ingresar su n&uacute;mero de documento</div>
+                                <div class="errorMessageDiv" ng-message="minlength">Para el {{documentName}}, el mínimo de caracteres es {{minCarac}}</div>         
+                                <div class="errorMessageDiv" ng-message="maxlength">Para el {{documentName}}, el máximo de caracteres es {{maxCarac}}</div>         
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <!-- Dirección -->
+                <div id="direccionCliente" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="linea1Modal" type="text" ng-model="PG.cliente.address.address1" name="linea1Modal" ng-minlength="5" required>
+                            <label for="linea1Modal">L&iacute;nea 1</label>
+                            <div ng-messages="clientForm.linea1Modal.$error" ng-if='clientForm.linea1Modal.$touched && clientForm.linea1Modal.$dirty' class="errorMessageContainer">
+                                <!-- the required message is displayed first... -->
+                                <div class="errorMessageDiv" ng-message="required">Debe ingresar una dirección</div>
+                                <!-- then, incase the message is too short, show the message right after -->
+                                <div class="errorMessageDiv" ng-message="minlength">La dirección es muy corta</div>                              
+                            </div>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="linea2Modal" type="text" class="" ng-model="PG.cliente.address.address2">
+                            <label for="linea2Modal">L&iacute;nea 2</label>
+                        </div>
+                        <div class="input-field col s6 m6">                            
+                            <select material-select watch name="paisModal" id="paisModal"
+                                    ng-options="pais as pais.name for pais in PG.invoice.paises track by pais.name"
+                                    ng-model="PG.pais" ng-change="PG.cambioPais($event)">
+                            </select> 
+                            <label for="paisModal">Pa&iacute;s</label>
+                        </div>
+                        <div class="input-field col s6 m6">                            
+                            <select material-select watch name="regionModal" id="regionModal"
+                                    ng-options="region as region.name for region in PG.invoice.regiones track by region.name"
+                                    ng-model="PG.region" required>
+                            </select> 
+                            <label for="regionModal">Regi&oacute;n</label>
+                            <div ng-messages="clientForm.regionModal.$error" ng-if="clientForm.regionModal.$touched && clientForm.regionModal.$dirty" class="errorMessageContainer">                                   <div class="errorMessageDiv" ng-message="required">Debe escoger una regi&oacute;n v&aacute;lida</div>                           
+                            </div>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="ciudadModal" type="text" name="ciudadModal" ng-model="PG.cliente.address.city" ng-minlength="5" required>
+                            <label for="ciudadModal">Ciudad</label>
+                            <div ng-messages="clientForm.ciudadModal.$error" ng-if='clientForm.ciudadModal.$touched && clientForm.ciudadModal.$dirty' class="errorMessageContainer">
+                                <!-- the required message is displayed first... -->
+                                <div class="errorMessageDiv" ng-message="required">Debe ingresar una ciudad</div>
+                                <!-- then, incase the message is too short, show the message right after -->
+                                <div class="errorMessageDiv" ng-message="minlength">El nombre de la ciudad es muy corto</div>                              
+                            </div>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="codigoPostalModal" type="text" ng-model="PG.cliente.address.postal">
+                            <label for="codigoPostalModal">C&oacute;digo Postal</label>
+                        </div>     
+                    </div>
+                </div>
+            </div>           
+        </form>       
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="cancelSaveClient" class="modal-action modal-close waves-effect btn-flat red-text text-accent-4"><i class="material-icons left">close</i>Cancelar</a>
+        <a href="#!" id="confirmSaveClient" ng-click="PG.agregarCliente($event, clientForm)" class="modal-action waves-effect btn-flat blue-text text-accent-4"><i class="material-icons left">save</i>Guardar</a>
+
+    </div>
+</div>

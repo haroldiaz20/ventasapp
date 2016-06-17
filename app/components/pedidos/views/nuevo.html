@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col s12 m12">
+        <ul id="registrarNuevoPedido" class="collapsible popout" data-collapsible="accordion" watch>
+            <li ng-click="NP.cambioEstado('general')">
+                <div class="collapsible-header active"><i class="material-icons">description</i>Informaci&oacute;n General</div>
+                <div class="collapsible-body"><div ui-view="general" class="row"></div></div>
+            </li>
+            <li ng-click="NP.cambioEstado('detalle')">
+                <div class="collapsible-header"><i class="material-icons">format_list_numbered</i>L&iacute;neas del Pedido</div>
+                <div class="collapsible-body"><div ui-view="detalle" class="row"></div></div>
+            </li>
+            <li ng-click="NP.cambioEstado('cliente')">
+                <div class="collapsible-header"><i class="material-icons">perm_identity</i>Informaci&oacute;n del Cliente</div>
+                <div class="collapsible-body"><div ui-view="cliente" class="row"></div></div>
+            </li>
+        </ul>
+    </div>
+    <div class="col s12 m12">
+        <a href="javascript:void(0);" id="cancelSavePedidoVenta" class="btn waves-effect waves-light default grey black-text text-accent-4"><i class="material-icons left">close</i>Cancelar</a>
+        <a href="javascript:void(0);" ng-click="NP.guardarPedidoVenta($event)" id="confirmSavePedidoVenta"  class="btn blue accent-4 waves-effect white-text text-accent-4"><i class="material-icons left">save</i>Guardar</a>
+    </div>
+</div>

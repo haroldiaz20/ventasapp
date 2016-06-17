@@ -1,0 +1,85 @@
+<form class="col s12 m12">
+    <div class="row">
+        <div class="input-field col s4 m4">
+            <input id="nroPedido" type="text" class="" ng-model="NP.pedido.documento.documentNo" disabled="">
+            <label for="nroPedido">Nro. Pedido</label>
+        </div>
+        <div class="input-field col s4 m4">
+            <input id="fechaPedido" type="text" class="" ng-model="NP.pedido.fecha" disabled="">
+            <label for="fechaPedido">Fecha Pedido</label>
+        </div>
+        <div class="input-field col s4 m4">    
+            <select material-select watch name="monedaPedido" id="monedaPedido"
+                    ng-options="moneda as moneda.name for moneda in NP.invoice.monedas track by moneda.value"
+                    ng-model="NP.pedido.moneda" ng-change="PG.cambioMoneda($event)">
+            </select>    
+            <label for="monedaPedido">Moneda</label>
+        </div>
+        <div class="input-field col s6 m6">                            
+            <select material-select watch name="almacenenPedido" id="almacenenPedido"
+                    ng-options="almacen as almacen.name for almacen in NP.invoice.almacenes track by almacen.value"
+                    ng-model="NP.pedido.almacen">
+            </select>  
+            <label for="almacenenPedido">Almac&eacute;n</label>
+        </div>
+        <div class="input-field col s6 m6">                            
+            <select material-select watch name="pedidoGenerar" id="pedidoGenerar"
+                    ng-options="pedidoGenerar as pedidoGenerar.name for pedidoGenerar in NP.invoice.pedidosGenerar track by pedidoGenerar.value"
+                    ng-model="NP.pedido.pedidoGenerar">
+            </select>
+            <label for="pedidoGenerar">Pedido a Generar</label>
+        </div>
+    </div>
+    <div class="row" id="productInfo">
+        <div class="input-field col s8 m3">
+            <input id="codigoProducto" type="text" class="" ng-model="PG.producto.codigo">
+            <label for="codigoProducto">C&oacute;digo</label>
+            <!--            <input id="search" type="search" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>-->
+        </div>
+
+        <div class="col s4 m3">
+            <a class="btn blue waves-effect waves-light accent-4" ng-click="PG.buscarProducto($event)"><i class="material-icons left">search</i>Buscar</a>
+        </div>
+
+        <div class="input-field col s12 m6">
+            <input id="nombreProducto" type="text" class="" ng-model="PG.producto.name" disabled="">
+            <label for="nombreProducto">Nombre del Producto</label>
+        </div>
+        <div class="input-field col s3 m3">
+            <input id="stockProducto" type="text" class="" ng-model="PG.producto.stock" disabled="">
+            <label for="stockProducto">Stock</label>
+        </div>
+        <div class="input-field col s3 m3">
+            <input id="precioListaProducto" type="text" class="" ng-model="PG.producto.pricelist" disabled="">
+            <label for="precioListaProducto">Precio de Lista</label>
+        </div>
+        <div class="input-field col s3 m3">
+            <input id="unidadMedidaProducto" type="text" class="" ng-model="PG.producto.uom.name" disabled="">
+            <label for="unidadMedidaProducto">Unidad de Medida</label>
+        </div>
+        <div class="input-field col s3 m3">
+            <input id="precioUnitarioProducto" type="number" class="" ng-keyup="PG.montoDescuento()" ng-pattern="/^[0-9]+(\.[0-9]{1,3})?$/" step="0.001" ng-model="PG.producto.precioUnitario">
+            <label for="precioUnitarioProducto">Precio Unitario</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s3 m3">
+            <input id="descuentoProducto" type="number" class="" ng-model="PG.producto.descuento" ng-pattern="/^[0-9]+(\.[0-9]{1,3})?$/" step="0.001" ng-keyup="PG.calcularDescuento()">
+            <label for="descuentoProducto">Descuento</label>
+        </div>
+        <div class="input-field col s3 m3">
+            <input id="cantidadProducto" type="number" class="" ng-model="PG.producto.cantidad" ng-keyup="PG.calcularSubtotal()" ng-pattern="/^[0-9]+(\.[0-9]{1,3})?$/" step="0.001">
+            <label for="cantidadProducto">Cantidad</label>
+        </div>
+        <div class="input-field col s3 m3">
+            <input id="subtotalProducto" type="text" class="" ng-model="PG.producto.subtotal" disabled="">
+            <label for="subtotalProducto">Subtotal</label>
+        </div>
+        <div class="col s4 m3">
+            <a class="btn blue waves-effect waves-light accent-4" ng-click="PG.agregarProducto(PG.producto.codigo, $event)"><i class="material-icons left">add</i>Agregar</a>
+        </div>
+    </div>
+
+</form>
